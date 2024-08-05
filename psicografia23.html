@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe com Mudança Automática</title>
+    <script>
+        let intervalId; // Variável para armazenar o ID do intervalo
+
+        function changeSrc() { 
+            const iframe = document.getElementById('demo');
+            const newSrc = "https://psicografia23.blogspot.com/";
+
+            // Verifica se o src atual é diferente do novo src
+            if (iframe.src !== newSrc) {
+                iframe.src = newSrc; 
+            }
+        }
+
+        function startAutoChange() {
+            // Inicia a mudança automática a cada 500 segundos
+            intervalId = setInterval(changeSrc, 500000); // 500000 milissegundos = 200 segundos
+        }
+
+        function stopAutoChange() {
+            clearInterval(intervalId); // Para a mudança automática
+        }
+
+        // Inicia a mudança automática ao carregar a página
+        window.onload = startAutoChange;
+    </script>
+</head>
+<body>
+    <h1>Iframe com Mudança Automática</h1>
+    <iframe id="demo" src="https://psicografia23.blogspot.com/" width="100%" height="300"></iframe>
+    <input type="button" onclick="changeSrc()" value="Clique em mim"/>
+    <input type="button" onclick="stopAutoChange()" value="Parar Mudança Automática"/>
+</body>
+</html>
