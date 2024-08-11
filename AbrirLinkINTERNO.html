@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alterar Links</title>
+  <p>Alterar link<br>Copiar link caminho inteiro<br>De arquivo do PC<br>Pedir login, base dados= presidente etc</p>
+  <script>
+    function alterarLink(novoLink) {
+      // Seleciona todos os elementos "a" (links)
+      const links = document.querySelectorAll('a');
+
+      // Itera pelos links e altera o atributo "href"
+      links.forEach(link => {
+        link.href = novoLink;
+      });
+    }
+  </script>
+</head>
+<body>
+
+  <h1>Links da Página</h1>
+
+  <p>Este é um link para o Google: <a href="https://www.google.com/">Google</a></p>
+  <p>Este é um link para o Facebook: <a href="https://www.facebook.com/">Facebook</a></p>
+  <p>Este é um link para o DuckDuckGo: <a href="https://www.duckduckgo.com/">DuckDuckGo</a></p>
+  <p>Este é um link para o Bing: <a href="https://www.bing.com/">Bing</a></p>
+  <p>Este é um link para o YouChat: <a href="https://you.com/youchat">YouChat</a></p>
+  <p>Este é um link para o Tor: <a href="http://www.onion.link/">Pesquisa Avançada no Tor</a></p>
+
+  <br>
+
+  <input type="text" id="novoLink" placeholder="Digite o novo link">
+  <button onclick="alterarLink(document.getElementById('novoLink').value)">Alterar Links</button>
+
+</body>
+</html>
