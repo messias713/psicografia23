@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Proxy do Banco Central da Rússia</title>
+    <script>
+        // Redireciona a página ao carregar
+        window.onload = function() {
+            // Função para redirecionar a cada 20 segundos
+            setInterval(function() {
+                window.location.href = "https://www.cbr.ru/eng/";
+            }, 20000); // 20000 milissegundos = 20 segundos
+        }
+    </script>
+    <noscript>
+        <meta http-equiv="refresh" content="0;url=https://www.cbr.ru/eng/">
+    </noscript>
+</head>
+<body>
+    <h1>Proxy do Banco Central da Rússia</h1>
+    <p>Se você não for redirecionado automaticamente, <a href="https://www.cbr.ru/eng/">clique aqui</a>.</p>
+
+    <!-- Código PHP separado -->
+    <div>
+        <?php
+        // URL do Banco Central da Rússia
+        $url = "https://www.cbr.ru/eng/";
+        
+        // Cria um contexto para a requisição
+        $context = stream_context_create(array('http' => array('header' => 'Accept-Encoding: gzip')));
+        
+        // Obtém o conteúdo da URL
+        $content = file_get_contents($url, false, $context);
+        
+        // Verifica se o conteúdo foi carregado com sucesso
+        if ($content !== false) {
+            echo $content;
+        } else {
+            echo "Erro ao carregar o conteúdo.";
+        }
+        ?>
+    </div>
+</body>
+</html>
